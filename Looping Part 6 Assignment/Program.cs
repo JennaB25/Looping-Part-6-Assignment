@@ -47,31 +47,41 @@ namespace Looping_Part_6_Assignment
                 }
             }         
         }
-        public static void prompter()
+        public static void Prompter()
         {
+            bool done = false;
+            double maxValue, minValue, value;
             Console.Clear();
             Console.WriteLine("Chose two numbers:");
             Console.WriteLine("Min Value:");
-            double minValue = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Max Value:");
-       //check that the max is bigger than min
-       //add do while loop
-            double maxValue = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter a number within the previous values:");
-            double value = Convert.ToDouble(Console.ReadLine());
-            while (value < minValue || value > maxValue)
+            minValue = Convert.ToDouble(Console.ReadLine());
+
+            //max value problem
+            Console.WriteLine("Max Value:");          
+            maxValue = Convert.ToDouble(Console.ReadLine()); 
+            
+      
+            do
             {
-                Console.WriteLine("Try Again");
-                //double value = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter a number within the previous values:");
+                value = Convert.ToDouble(Console.ReadLine());
+                if (//a valid number)
+                {
+                    done = true;
+                    Console.WriteLine("Great job");
+                }
+                else
+                {
+                    //try again
+                }
             }
-            if (value > minValue || value < maxValue)
-            {
-                Console.WriteLine("Correct");
-            }
-            else
-            {
-                Console.WriteLine("Error: Invalid Input");
-            }
+            while (!done);
+
+            
+            //else
+            //{
+                //Console.WriteLine("Error: Invalid Input");
+            //}
         }
 
         public static void precentPassing()
@@ -86,6 +96,16 @@ namespace Looping_Part_6_Assignment
                 string score = (Console.ReadLine());
                 score = score.Replace("%", "");
                 int _score = Convert.ToInt32(score);
+                int sumOfPScores = 0;
+                int sumOfScores = 0;
+                if (_score >= 70)
+                {                    
+                    sumOfPScores = sumOfPScores + 1;
+                }
+                else
+                {
+                    sumOfScores = sumOfScores + 1;
+                }
                 Console.WriteLine("Done entering scores: One");
                 Console.WriteLine("Not done entering scores: Two");
                 string input = Console.ReadLine().ToUpper();
@@ -96,15 +116,20 @@ namespace Looping_Part_6_Assignment
                 }                   
                 else if (input == "TWO")
                 {
-                    while (false);
+                    while (false);                  
                 }              
                 else
                 {
                     Console.WriteLine("Error: Invalid Input");
-                }               
+                }              
             }
-            int sumOfScores;
-            Console.WriteLine("test");
+            //Console.WriteLine($"Final average is: {sumOfPScores / sumOfScores}%");
+            //Console.ReadLine();
         }
+        public static void oddSum()
+        {
+            //
+        }
+            
     }
 }
