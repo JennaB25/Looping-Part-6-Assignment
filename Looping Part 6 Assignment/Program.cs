@@ -20,6 +20,7 @@ namespace Looping_Part_6_Assignment
                 Console.WriteLine();
                 Console.WriteLine("1 - Prompter");
                 Console.WriteLine("2 - Precent Passing");
+                Console.WriteLine("3 - Odd Sum");
                 Console.WriteLine("---------------");                
                 Console.WriteLine("Q - Quit");
                 Console.WriteLine();
@@ -31,15 +32,22 @@ namespace Looping_Part_6_Assignment
                     Console.WriteLine("You chose Prompter");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
-                    prompter();
+                    Prompter();
                 }
                 else if (choice == "2")
                 {                    
                     Console.WriteLine("You chose Precent Passing");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
-                    precentPassing();
-                }                
+                    PrecentPassing();
+                }  
+                else if (choice == "3")
+                {
+                    Console.WriteLine("You chose Odd Sum");
+                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.ReadLine();
+                    OddSum();
+                }
                 else
                 {
                     Console.WriteLine("Invalid choice, press ENTER to continue.");
@@ -50,54 +58,71 @@ namespace Looping_Part_6_Assignment
         public static void Prompter()
         {
             bool done = false;
-            double maxValue, minValue, value;
+            double maxValue, value;
+            string _minValue;
+            double minValue;
             Console.Clear();
             Console.WriteLine("Chose two numbers:");
             Console.WriteLine("Min Value:");
-            minValue = Convert.ToDouble(Console.ReadLine());
-
-            //max value problem
-            Console.WriteLine("Max Value:");          
-            maxValue = Convert.ToDouble(Console.ReadLine()); 
-            
-      
-            do
+            _minValue = Console.ReadLine();
+            if (Int32.TryParse(_minValue, out int result))
             {
-                Console.WriteLine("Enter a number within the previous values:");
-                value = Convert.ToDouble(Console.ReadLine());
-                if (//a valid number)
+                minValue = Convert.ToDouble(_minValue);
+                do
                 {
-                    done = true;
-                    Console.WriteLine("Great job");
+                    Console.WriteLine("Max Value:");
+                    maxValue = Convert.ToDouble(Console.ReadLine());
+                    if (maxValue >= minValue)
+                    {
+                        done = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter a number above min value");
+                    }
                 }
-                else
+                while (!done);
+                done = false;
+                do
                 {
-                    //try again
+                    Console.WriteLine($"Enter a number within {minValue} and {maxValue}");
+                    value = Convert.ToDouble(Console.ReadLine());
+                    if (value <= maxValue && value >= minValue)
+                    {                     
+                        Console.WriteLine("Great job");
+                        Console.ReadLine();
+                        done = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Try again");
+                    }
                 }
+                while (!done);
             }
-            while (!done);
-
-            
-            //else
-            //{
-                //Console.WriteLine("Error: Invalid Input");
-            //}
+            else
+            {
+                Console.WriteLine("Error: Run Program Again");
+                Console.ReadLine();
+            }                      
         }
 
-        public static void precentPassing()
+        public static void PrecentPassing()
         {
             Console.Clear();
-            bool done = false;      
+            bool done = false;
+            string score;
+            int _score;
                 Console.WriteLine("                       ----Precent-Passing----                    ");
                 Console.WriteLine("Enter a set of scores and I will tell you the precentage above 70%");
+            int sumOfPScores = 0;
+            int sumOfScores = 0;
             while (!done)
             {
                 Console.WriteLine("Enter a score:");
-                string score = (Console.ReadLine());
+                score = (Console.ReadLine());
                 score = score.Replace("%", "");
-                int _score = Convert.ToInt32(score);
-                int sumOfPScores = 0;
-                int sumOfScores = 0;
+                _score = Convert.ToInt32(score);               
                 if (_score >= 70)
                 {                    
                     sumOfPScores = sumOfPScores + 1;
@@ -106,15 +131,15 @@ namespace Looping_Part_6_Assignment
                 {
                     sumOfScores = sumOfScores + 1;
                 }
-                Console.WriteLine("Done entering scores: One");
-                Console.WriteLine("Not done entering scores: Two");
-                string input = Console.ReadLine().ToUpper();
+                Console.WriteLine("Done entering scores: 1");
+                Console.WriteLine("Not done entering scores: 2");
+                string input = Console.ReadLine();
                 
-                if (input == "ONE")
+                if (input == "1")
                 {
                     done = true;
                 }                   
-                else if (input == "TWO")
+                else if (input == "2")
                 {
                     while (false);                  
                 }              
@@ -126,10 +151,90 @@ namespace Looping_Part_6_Assignment
             //Console.WriteLine($"Final average is: {sumOfPScores / sumOfScores}%");
             //Console.ReadLine();
         }
-        public static void oddSum()
+        public static void OddSum()
         {
-            //
+            Console.Clear();
+            bool done = false;
+            string _number;
+            int number;
+            int numOfNumbers = 0;
+            Console.WriteLine("----Odd-Sum----");
+            Console.WriteLine("Enter a number:");
+            _number = Console.ReadLine();
+            if (Int32.TryParse(_number, out int result))
+            {
+                number = Convert.ToInt32(_number);
+                if (number % 2 != 0)
+                {
+                    numOfNumbers = number + numOfNumbers;
+                    while (done == false)
+                    {
+                        number = number - 2;
+                        numOfNumbers = number + numOfNumbers;
+                        if (number != 0)
+                        {
+                            done = true;
+                        }
+                    }                    
+                    Console.WriteLine(numOfNumbers);
+                    Console.ReadLine();
+                }
+                else if (number % 2 == 0)
+                {
+                    numOfNumbers = number - 1;
+                    numOfNumbers = number + numOfNumbers;
+                    while (done == false)
+                    {
+                        number = number - 2;
+                        numOfNumbers = number + numOfNumbers;
+                        if (number != 0)
+                        {
+                            done = true;
+                        }
+                    }
+                    Console.WriteLine(numOfNumbers);
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Error: Run Program Again");
+                } 
+            }
+            else
+            {
+                Console.WriteLine("Error: Run Program Again");
+                Console.ReadLine();
+            }
         }
-            
+        public static void RandomNumbers()
+        {
+            Console.Clear();
+            Random generator = new Random();
+            bool done = false;
+            double maxValue;
+            string _minValue;
+            double minValue;
+            Console.WriteLine("----Random-Numbers----");
+            Console.WriteLine("Enter a minimum value:");
+            _minValue = Console.ReadLine();
+            if (Int32.TryParse(_minValue, out int result))
+            {
+                minValue = Convert.ToDouble(_minValue);
+                do
+                {
+                Console.WriteLine("Max Value:");
+                maxValue = Convert.ToDouble(Console.ReadLine());
+                if (maxValue >= minValue)
+                {
+                    done = true;
+                }
+                else
+                {
+                    Console.WriteLine("Enter a number above min value");
+                }
+            }
+            while (!done);
+
+        }
     }
 }
