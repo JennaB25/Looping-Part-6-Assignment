@@ -322,7 +322,8 @@ namespace Looping_Part_6_Assignment
                         {
                             Console.WriteLine("Congratulations!");
                             Console.WriteLine($"You won: ${_bet1}");
-                            Console.WriteLine($"Bank Account: ${(_bet1 * 2) + bankAccount}");
+                            bankAccount = (_bet1 * 2) + bankAccount;
+                            Console.WriteLine($"Bank Account: ${bankAccount}");
                             Console.ReadLine();
                             Console.Clear();
                         }
@@ -348,7 +349,8 @@ namespace Looping_Part_6_Assignment
                         {
                             Console.WriteLine("Congratulations!");
                             Console.WriteLine($"You won: ${_bet1}");
-                            Console.WriteLine($"Bank Account: ${(_bet1 / 2) + bankAccount}");
+                            bankAccount = (_bet1 / 2) + bankAccount;
+                            Console.WriteLine($"Bank Account: ${bankAccount}");
                             Console.ReadLine();
                             Console.Clear();
                         }
@@ -356,7 +358,8 @@ namespace Looping_Part_6_Assignment
                         {
                             Console.WriteLine("Oh no you lost, try again.");
                             Console.WriteLine($"You lost: ${_bet1}");
-                            Console.WriteLine($"Bank Account: ${bankAccount - _bet1}");
+                            bankAccount = bankAccount - _bet1;
+                            Console.WriteLine($"Bank Account: ${bankAccount}");
                             Console.ReadLine();
                             Console.Clear();
                         }
@@ -376,7 +379,8 @@ namespace Looping_Part_6_Assignment
                         {
                             Console.WriteLine("Congratulations!");
                             Console.WriteLine($"You won: ${_bet1}");
-                            Console.WriteLine($"Bank Account: ${_bet1 + bankAccount}");
+                            bankAccount = _bet1 + bankAccount;
+                            Console.WriteLine($"Bank Account: ${bankAccount}");
                             Console.ReadLine();
                             Console.Clear();
                         }
@@ -384,7 +388,8 @@ namespace Looping_Part_6_Assignment
                         {
                             Console.WriteLine("Oh no you lost, try again.");
                             Console.WriteLine($"You lost: ${_bet1}");
-                            Console.WriteLine($"Bank Account: ${bankAccount - _bet1}");
+                            bankAccount = bankAccount - _bet1;
+                            Console.WriteLine($"Bank Account: ${bankAccount}");
                             Console.ReadLine();
                             Console.Clear();
                         }
@@ -403,8 +408,9 @@ namespace Looping_Part_6_Assignment
                         if (sumOfDie % 2 != 0)
                         {
                             Console.WriteLine("Congratulations!");
-                            Console.WriteLine($"You won: ${_bet1}");
-                            Console.WriteLine($"Bank Account: ${_bet1 + bankAccount}");
+                            Console.WriteLine($"You won: ${_bet1}"); 
+                            bankAccount = _bet1 + bankAccount;
+                            Console.WriteLine($"Bank Account: ${bankAccount}");
                             Console.ReadLine();
                             Console.Clear();
                         }
@@ -412,7 +418,8 @@ namespace Looping_Part_6_Assignment
                         {
                             Console.WriteLine("Oh no you lost, try again.");
                             Console.WriteLine($"You lost: ${_bet1}");
-                            Console.WriteLine($"Bank Account: ${bankAccount - _bet1}");
+                            bankAccount = bankAccount - _bet1;
+                            Console.WriteLine($"Bank Account: ${bankAccount}");
                             Console.ReadLine();
                             Console.Clear();
                         }
