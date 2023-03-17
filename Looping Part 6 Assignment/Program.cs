@@ -64,6 +64,10 @@ namespace Looping_Part_6_Assignment
                     Console.ReadLine();
                     DiceGame();
                 }
+                else if (choice == "q")
+                {
+                    choice = "q";
+                }
                 else
                 {
                     Console.WriteLine("Invalid choice, press ENTER to continue.");
@@ -187,10 +191,10 @@ namespace Looping_Part_6_Assignment
                 {
                     numOfNumbers = number + numOfNumbers;
                     while (done == false)
-                    {
+                    {                        
                         number = number - 2;
                         numOfNumbers = number + numOfNumbers;
-                        if (number != 0)
+                        if (number <= 1)
                         {
                             done = true;
                         }
@@ -200,19 +204,19 @@ namespace Looping_Part_6_Assignment
                     Console.ReadLine();
                 }
                 else if (number % 2 == 0)
-                {
-                    numOfNumbers = number - 1;
+                {                 
+                    number = number - 1;
                     numOfNumbers = number + numOfNumbers;
                     while (done == false)
                     {
                         number = number - 2;
                         numOfNumbers = number + numOfNumbers;
-                        if (number != 0)
+                        if (number <= 1)
                         {
                             done = true;
                         }
                     }
-
+                    Console.WriteLine("Odd Sum:");
                     Console.WriteLine(numOfNumbers);
                     Console.ReadLine();
                 }
